@@ -23,7 +23,7 @@ try {
   exit;
 }
 
-if (! isset($accessToken)) {
+if (!isset($accessToken)) {
   if ($helper->getError()) {
     header('HTTP/1.0 401 Unauthorized');
     echo "Error: " . $helper->getError() . "\n";
@@ -69,44 +69,6 @@ if (! $accessToken->isLongLived()) {
 }
 
 $_SESSION['fb_access_token'] = (string) $accessToken;
-
-//$res = $fb->get( '/me?fields=id,first_name,last_name,email,gender,locale', $accessToken);
-
-//$user = $res->getGraphObject()->asArray();
-// loaded user info into an array
-?>
-<!--
-<h1>Facebook Info</h1>
-<div>
-	 <table style="width:50%">
-	  <tr>
-	    <th>Picture</th>
-	    <th>Firstname</th>
-	    <th>Lastname</th>
-	    <th>Email</th>
-	    <th>Gender</th>
-	    <th>Locale</th>
-	  </tr>
-	  <tr>
-	    <td><img src="<?php echo 'http://graph.facebook.com/' . $user['id'] . '/picture?type=large' ?>"></img></td>
-	    <td><?php echo $user['first_name'] ?></td>
-	    <td><?php echo $user['last_name'] ?></td>
-	    <td><?php echo $user['email'] ?></td>
-	    <td><?php echo $user['gender'] ?></td>
-	    <td><?php echo $user['locale'] ?></td>
-	  </tr>
-	 </table>
-</div>
-	$user_id = $user['id'];
-	$first_name = $user['first_name'];
-	$last_name = $user['last_name'];
-	$email = $user['email'];
-	$gender = $user['gender'];
-	$locale = $user['locale'];
-	$picture = "http://graph.facebook.com/" . $user_id . "/picture?type=large";
--->
-<?php
-
 
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.

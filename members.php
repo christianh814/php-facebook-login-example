@@ -16,6 +16,7 @@ $user = $res->getGraphObject()->asArray();
 <div>
 	 <table style="width:50%">
 	  <tr>
+	    <th>Id</th>
 	    <th>Picture</th>
 	    <th>Firstname</th>
 	    <th>Lastname</th>
@@ -25,6 +26,7 @@ $user = $res->getGraphObject()->asArray();
 	    <th>city</th>
 	  </tr>
 	  <tr>
+	    <td><?php echo $user['id'] ?></td>
 	    <td><img src="<?php echo 'http://graph.facebook.com/' . $user['id'] . '/picture?type=large' ?>"></img></td>
 	    <td><?php echo $user['first_name'] ?></td>
 	    <td><?php echo $user['last_name'] ?></td>
@@ -35,12 +37,3 @@ $user = $res->getGraphObject()->asArray();
 	  </tr>
 	 </table>
 </div>
-<!--
-	$user_id = $user['id'];
-	$first_name = $user['first_name'];
-	$last_name = $user['last_name'];
-	$email = $user['email'];
-	$gender = $user['gender'];
-	$locale = $user['locale'];
-	$picture = "http://graph.facebook.com/" . $user_id . "/picture?type=large";
--->
